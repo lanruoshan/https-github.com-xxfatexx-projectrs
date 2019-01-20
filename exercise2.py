@@ -8,7 +8,7 @@ import pandas as pd
 app = dash.Dash()
 
 # get Data
-df = pd.read_csv ("/Users/apple/Desktop/shell/Tech.csv" )
+df = pd.read_csv ("Tech.csv" )
 
 #get industry number
 available_indicators = df['name'].unique()
@@ -94,7 +94,7 @@ app.layout = html.Div([
      dash.dependencies.Input('graphType','value')])
 
 def update_graph(industry,priceType,graphType):
-    dff = pd.read_csv('/Users/apple/Desktop/' + industry + '.csv')
+    dff = pd.read_csv(industry + '.csv')
     if graphType == 'Bar':
         return {
             'data': [
