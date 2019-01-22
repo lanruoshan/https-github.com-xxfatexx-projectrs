@@ -1,7 +1,7 @@
-gunicorn>=19.9.0
-dash>=0.35.2
-dash_core_components>=0.42.1
-dash_html_components>=0.13.5
-plotly.graph_objs>=3.5.0
-pandas>=0.22.2
+gunicorn
+dash
+dash_core_components
+dash_html_components
+plotly
+pandas
 
