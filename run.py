@@ -168,8 +168,10 @@ def update_graph(industry,priceType,graphType):
 
         }
 
-
+server = app.server
 if __name__ == '__main__':
+    from werkzeug.contrib.fixers import ProxyFix
 
+    server.wsgi_app = ProxyFix(server.wsgi_app)
     app.run_server(debug=True,host='0.0.0.0')
 
