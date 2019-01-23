@@ -10,7 +10,7 @@ import dash_auth
 #import dash_core_components.Location as dcclc
 #import dash_core_components.Link as dccl
 VALID_USERNAME_PASSWORD_PAIRS = [
-   ['shell', '1234567']
+   ['shell', '12345']
 ]
 
 #server = Flask(__name__)
