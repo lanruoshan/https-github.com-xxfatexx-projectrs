@@ -7,7 +7,15 @@ import pandas as pd
 import dash_auth
 
 app = dash.Dash()
+server = app.server
 
+VALID_USERNAME_PASSWORD_PAIRS = [
+    ['shell', '12345']
+    ]
+    auth = dash_auth.BasicAuth(
+    app,
+    VALID_USERNAME_PASSWORD_PAIRS
+    )
 
 
 
@@ -172,18 +180,13 @@ def update_graph(industry,priceType,graphType):
 
         }
 
- VALID_USERNAME_PASSWORD_PAIRS = [
-    ['shell', '12345']
-    ]
-    auth = dash_auth.BasicAuth(
-    app,
-    VALID_USERNAME_PASSWORD_PAIRS
-    )
-server = app.server
+ 
+
 
 
 
 if __name__ == '__main__':
+     
         
     from werkzeug.contrib.fixers import ProxyFix
 
