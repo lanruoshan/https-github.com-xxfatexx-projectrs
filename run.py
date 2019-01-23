@@ -41,10 +41,12 @@ url_bar_and_content_div = html.Div([
 ])
 
 layout_index = html.Div([
-    dcc.Link('Navigate to "/graph-1"', href='/graph-1'),
+    html.H2('Index'),
+    dcc.Link('graph-1', href='/graph-1'),
     html.Br(),
-    dcc.Link('Navigate to "/graph-2"', href='/graph-2'),
-])
+    dcc.Link('graph-2"', href='/graph-2'),
+],style={'position':'absolute','left': '50%','top': '20%','-webkit-transform': 'translateX(-50%)',
+         'transform': 'translateX(-50%)','height':'100%'})
 
 layout_page_1 = html.Div([
         html.H2('graph-1'),
@@ -119,9 +121,9 @@ html.Div([dcc.Graph(
                    'right':"1"}),
 
         html.Br(),
-        dcc.Link('Navigate to "/"', href='/'),
+        dcc.Link('Navigate to index', href='/'),
         html.Br(),
-        dcc.Link('Navigate to "/graph-2"', href='/graph-2'),
+        dcc.Link('Navigate to graph-2', href='/graph-2'),
 
 
 ])
@@ -135,9 +137,9 @@ layout_page_2 = html.Div([
     ),
     html.Div(id='graph-2-display-value'),
     html.Br(),
-    dcc.Link('Navigate to "/"', href='/'),
+    dcc.Link('Navigate to index', href='/'),
     html.Br(),
-    dcc.Link('Navigate to "/graph-1"', href='/graph-1'),
+    dcc.Link('Navigate to graph-1', href='/graph-1'),
 
 ])
 
