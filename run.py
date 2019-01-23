@@ -266,5 +266,5 @@ if __name__ == '__main__':
 
     server.wsgi_app = ProxyFix(server.wsgi_app)
 
-    app.run_server(debug=True,host='0.0.0.0')
+    app.run_server(debug=True)
 
