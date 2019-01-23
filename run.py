@@ -4,9 +4,12 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 import pandas as pd
-
+import dash_auth
 
 app = dash.Dash()
+
+
+
 
 # get Data
 df = pd.read_csv ("Tech.csv" )
@@ -170,6 +173,15 @@ def update_graph(industry,priceType,graphType):
         }
 
 server = app.server
+VALID_USERNAME_PASSWORD_PAIRS = [
+    ['shell', '12345']
+]
+auth = dash_auth.BasicAuth(
+    app,
+    VALID_USERNAME_PASSWORD_PAIRS
+)
+
+
 if __name__ == '__main__':
     from werkzeug.contrib.fixers import ProxyFix
 
