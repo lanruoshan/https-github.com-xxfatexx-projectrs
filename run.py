@@ -10,7 +10,7 @@ import dash_auth
 #import dash_core_components.Location as dcclc
 #import dash_core_components.Link as dccl
 VALID_USERNAME_PASSWORD_PAIRS = [
-   ['shell', '12345']
+   ['shell', '1234567']
 ]
 
 #server = Flask(__name__)
@@ -258,9 +258,9 @@ def display_value(value):
 
 
 
-
-server = app.server
 app.scripts.config.serve_locally = True
+server = app.server
+
 if __name__ == '__main__':
     from werkzeug.contrib.fixers import ProxyFix
 
