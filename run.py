@@ -173,18 +173,19 @@ def update_graph(industry,priceType,graphType):
         }
 
 server = app.server
-VALID_USERNAME_PASSWORD_PAIRS = [
-    ['shell', '12345']
-]
-auth = dash_auth.BasicAuth(
-    app,
-    VALID_USERNAME_PASSWORD_PAIRS
-)
+
 
 
 if __name__ == '__main__':
     from werkzeug.contrib.fixers import ProxyFix
 
     server.wsgi_app = ProxyFix(server.wsgi_app)
+    VALID_USERNAME_PASSWORD_PAIRS = [
+    ['shell', '12345']
+    ]
+    auth = dash_auth.BasicAuth(
+    app,
+    VALID_USERNAME_PASSWORD_PAIRS
+    )
     app.run_server(debug=True,host='0.0.0.0')
 
