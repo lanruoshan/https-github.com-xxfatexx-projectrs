@@ -258,9 +258,9 @@ def display_value(value):
 
 
 
-app.scripts.config.serve_locally = True
-server = app.server
 
+server = app.server
+app.scripts.config.serve_locally = True
 if __name__ == '__main__':
     from werkzeug.contrib.fixers import ProxyFix
 
