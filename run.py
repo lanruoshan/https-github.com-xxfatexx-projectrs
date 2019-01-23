@@ -10,13 +10,20 @@ import dash_auth
 #from flask import Flask
 #import dash_core_components.Location as dcclc
 #import dash_core_components.Link as dccl
-
+VALID_USERNAME_PASSWORD_PAIRS = [
+   ['shell', '12345']
+]
 
 #server = Flask(__name__)
 
 
 #1.create dash object
 app = dash.Dash(__name__)
+
+auth = dash_auth.BasicAuth(
+      app,
+      VALID_USERNAME_PASSWORD_PAIRS
+)
 #2.catch exception
 app.config.suppress_callback_exceptions = True
 #app = dash.Dash(name='app1', sharing=True, server=server, csrf_protect=False)
@@ -248,14 +255,9 @@ def display_value(value):
     return 'You have selected "{}"'.format(value)
 
 
-#VALID_USERNAME_PASSWORD_PAIRS = [
-#    ['shell', '12345']
-#]
-#auth = dash_auth.BasicAuth(
-#    app,
- #   VALID_USERNAME_PASSWORD_PAIRS
-#)
 
+
+app.scripts.config.serve_locally = True
 server = app.server
 if __name__ == '__main__':
     from werkzeug.contrib.fixers import ProxyFix
