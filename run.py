@@ -248,13 +248,13 @@ def display_value(value):
     return 'You have selected "{}"'.format(value)
 
 
-VALID_USERNAME_PASSWORD_PAIRS = [
-    ['shell', '12345']
-]
-auth = dash_auth.BasicAuth(
-    app,
-    VALID_USERNAME_PASSWORD_PAIRS
-)
+#VALID_USERNAME_PASSWORD_PAIRS = [
+#    ['shell', '12345']
+#]
+#auth = dash_auth.BasicAuth(
+#    app,
+ #   VALID_USERNAME_PASSWORD_PAIRS
+#)
 
 server = app.server
 if __name__ == '__main__':
