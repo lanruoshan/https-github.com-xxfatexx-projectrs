@@ -11,7 +11,7 @@ import dash_auth
 #import dash_core_components.Location as dcclc
 #import dash_core_components.Link as dccl
 VALID_USERNAME_PASSWORD_PAIRS = [
-   ['shell', '12345']
+   ['shell', '123456']
 ]
 
 #server = Flask(__name__)
@@ -44,7 +44,7 @@ layout_index = html.Div([
     html.H2('Index'),
     dcc.Link('graph-1', href='/graph-1'),
     html.Br(),
-    dcc.Link('graph-2"', href='/graph-2'),
+    dcc.Link('graph-2', href='/graph-2'),
 ],style={'position':'absolute','left': '50%','top': '20%','-webkit-transform': 'translateX(-50%)',
          'transform': 'translateX(-50%)','height':'100%'})
 
