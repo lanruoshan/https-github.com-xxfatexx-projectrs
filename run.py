@@ -131,9 +131,40 @@ layout_page_2 = html.Div([
    html.H2('graph-2'),
     dcc.Dropdown(
         id='graph-2-dropdown',
-        options=[{'label': i, 'value': i} for i in ['LA', 'NYC', 'MTL']],
-        value='LA'
+        options=[{'label': i, 'value': i} for i in ['Tech', 'Bank']],
+        value='Bank'
     ),
+html.Div([dcc.Graph(
+
+        id='example-graph2',
+
+        figure={
+
+            'data': [
+                go.Scatter(
+                    x=df[df['name'] == i]['date'],
+                    y=df[df['name'] == i]['open'],
+                    text=df[df['name'] == i]['name'],
+                    mode='lines+markers',  #scatter/ no--line
+                    opacity=0.7,
+                    marker={
+                        'size': 15,
+                        'line': {'width': 0.5, 'color': 'white'}
+                    },
+                    name=i
+                ) for i in df.name.unique()
+            ],
+
+            'layout': go.Layout(
+
+                xaxis={'title': 'date'},
+                yaxis={'title': 'Open price'},
+                #margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
+
+                hovermode='closest'
+            )}
+         )]),
+
     html.Div(id='graph-2-display-value'),
     html.Br(),
     dcc.Link('Navigate to index', href='/'),
@@ -243,20 +274,43 @@ def update_graph(industry,priceType,graphType):
                 yaxis={'title': priceType+' price'},
                 # margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
 
+
                 hovermode='closest'
             )
 
         }
 
 # Page 2 callbacks
-@app.callback(Output('graph-2-display-value', 'children'),
-              [Input('graph-2-dropdown', 'value')])
-def display_value(value):
-    print('display_value')
-    return 'You have selected "{}"'.format(value)
 
 
+@app.callback(
+    dash.dependencies.Output('example-graph2', 'figure'),
+    [dash.dependencies.Input('graph-2-dropdown', 'value')])
 
+def update_graph2(industry):
+    dff2 = pd.read_csv(industry + '.csv')
+    return {
+        'data': [
+
+            go.Scatter(
+                x=dff2[dff2['name'] == i]['date'],
+                y=dff2[dff2['name'] == i]['open'],
+                text=dff2[dff2['name'] == i]['name'],
+                 #scatter/ no--line
+
+                name=i
+            ) for i in dff2.name.unique()
+        ],
+        'layout': go.Layout(
+            title=industry + ' Stock Price',
+            xaxis={'title': 'date'},
+            yaxis={'title': 'open price'},
+            # margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
+
+            hovermode='closest'
+        )
+
+    }
 
 app.scripts.config.serve_locally = True
 server = app.server
