@@ -28,7 +28,7 @@ app.config.suppress_callback_exceptions = True
 #app = dash.Dash(name='app1', sharing=True, server=server, csrf_protect=False)
 
 #3.get Data
-df = pd.read_csv ("Tech.csv" )
+df = pd.read_csv ("https://www.dropbox.com/s/agnvmwy7czgp3v8/Car.csv?dl=0" )
 
 #get industry number
 available_indicators = df['name'].unique()
